@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ClinicFlow — a hand-drawn workflow site map of the AI-powered WhatsApp automation and clinic management platform.">
+<title>ClinicFlow — Workflow Site Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf5e8;
+    --paper-2:#f4edda;
+    --ink:#4a4238;
+    --ink-soft:#6b5f4e;
+    --ink-faint:#8a7c68;
+    --amber:#c98a1b;
+    --amber-ink:#8a5a1f;
+    --shadow:rgba(74,66,56,.16);
+
+    --teal-bg:#d9f0ea;  --teal-edge:#5fae9c;  --teal-ink:#2c6a5c;
+    --pink-bg:#f9dbe6;  --pink-edge:#d98aa8;  --pink-ink:#a0577b;
+    --green-bg:#dcefcf; --green-edge:#8fbf77; --green-ink:#3f6b2c;
+    --orange-bg:#fbe3c7;--orange-edge:#e0a866;--orange-ink:#8a5a1f;
+    --blue-bg:#dce7f5;  --blue-edge:#8fb2d9;  --blue-ink:#33517a;
+    --purple-bg:#e6dcf2;--purple-edge:#a88fd0;--purple-ink:#5d4491;
+    --red-bg:#f8dcdc;   --red-edge:#d98a8a;   --red-ink:#8c3a3a;
+    --yellow-bg:#fdf0c2;--yellow-edge:#d9b64a;--yellow-ink:#7a6010;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Patrick Hand','Comic Sans MS',cursive;
+    color:var(--ink);
+    line-height:1.45;
+    overflow-x:hidden;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 8%,  rgba(120,90,40,.05), transparent 40%),
+      radial-gradient(circle at 88% 28%, rgba(90,120,140,.05), transparent 45%),
+      radial-gradient(circle at 28% 88%, rgba(140,90,120,.05), transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.06'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+    min-height:100vh;
+  }
+
+  .rough{filter:url(#rough);}
+  .rough-more{filter:url(#rough-more);}
+
+  /* ---- top navigation ---- */
+  .topnav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(250,245,232,.93);
+    border-bottom:2px solid var(--ink-soft);
+    filter:url(#rough);
+    box-shadow:0 3px 0 rgba(74,66,56,.08);
+  }
+  .nav-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 14px;}
+  .nav-logo{
+    font-family:'Caveat',cursive;font-weight:700;font-size:1.55rem;
+    color:var(--amber-ink);transform:rotate(-1.5deg);white-space:nowrap;
+  }
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap;}
+  .nav-links a{
+    font-family:'Caveat',cursive;font-size:1.1rem;color:var(--ink);
+    text-decoration:none;padding:1px 9px;border-radius:9px;
+    transform:rotate(var(--r,0deg));
+  }
+  .nav-links a:nth-child(1){--r:-1.2deg;}
+  .nav-links a:nth-child(2){--r:.8deg;}
+  .nav-links a:nth-child(3){--r:-.6deg;}
+  .nav-links a:nth-child(4){--r:1deg;}
+  .nav-links a:nth-child(5){--r:-.9deg;}
+  .nav-links a:nth-child(6){--r:.5deg;}
+  .nav-links a:nth-child(7){--r:-.7deg;}
+  .nav-links a:hover{background:var(--yellow-bg);box-shadow:0 0 0 1.5px var(--yellow-edge);}
+
+  /* ---- hero ---- */
+  .hero{max-width:860px;margin:0 auto;padding:60px 16px 24px;text-align:center;position:relative;}
+  .hero-title{
+    font-family:'Caveat',cursive;font-weight:700;
+    font-size:clamp(3.4rem,10vw,5.4rem);line-height:1.05;
+    color:var(--amber-ink);transform:rotate(-1.6deg);
+    filter:url(#rough-more);
+    text-shadow:3px 3px 0 rgba(201,138,27,.2);
+  }
+  .hero-sub{font-family:'Caveat',cursive;font-weight:600;font-size:clamp(1.6rem,4.5vw,2.3rem);color:var(--ink);transform:rotate(.8deg);}
+  .hero-squiggle{display:block;width:min(340px,82vw);height:26px;margin:6px auto 4px;color:var(--amber-ink);filter:url(#rough);}
+  .hero-tag{font-size:1.18rem;color:var(--ink-soft);max-width:520px;margin:12px auto 8px;transform:rotate(-.4deg);}
+  .hero-note{font-family:'Caveat',cursive;font-size:1.28rem;color:var(--ink-soft);}
+  .hero-arrows{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--ink-faint);margin-top:20px;transform:rotate(-1deg);}
+  .badge{
+    position:absolute;top:26px;right:6%;z-index:2;
+    font-family:'Caveat',cursive;font-weight:700;font-size:1.5rem;line-height:.95;
+    color:var(--red-ink);text-align:center;
+    background:var(--red-bg);border:2px solid var(--red-edge);
+    width:76px;height:76px;border-radius:50%;
+    transform:rotate(9deg);filter:url(#rough-more);
+    box-shadow:3px 3px 0 rgba(74,66,56,.15);
+    padding-top:15px;
+  }
+  .badge span{display:block;font-size:.95rem;font-weight:600;margin-top:2px;}
+
+  /* ---- main + paper sections ---- */
+  main{max-width:860px;margin:0 auto;padding:8px 16px 50px;}
+  section{scroll-margin-top:80px;}
+
+  .paper{
+    position:relative;
+    background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(250,245,232,0) 130px),var(--paper);
+    border:2px solid var(--ink-soft);
+    border-radius:16px 18px 14px 20px;
+    padding:26px 22px 30px;
+    margin:34px 0;
+    box-shadow:4px 5px 0 var(--shadow);
+    transform:rotate(-.28deg);
+  }
+  .paper:nth-of-type(even){transform:rotate(.32deg);}
+  .paper::before{
+    content:"";position:absolute;inset:-4px -3px;
+    border:2px solid var(--ink-soft);border-radius:inherit;
+    opacity:.38;transform:rotate(.4deg);pointer-events:none;
+  }
+  .paper > *{position:relative;}
+
+  .sec-head{display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+  .sec-num{font-family:'Caveat',cursive;font-weight:700;font-size:1.9rem;color:var(--ink-faint);transform:rotate(-6deg);}
+  .sec-head h2{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.7rem,4.5vw,2.3rem);color:var(--amber-ink);transform:rotate(-.8deg);text-align:center;}
+  .sec-ref{font-size:1rem;color:var(--ink-faint);border-bottom:2px dotted var(--ink-faint);transform:rotate(1.2deg);white-space:nowrap;}
+  .sec-desc{text-align:center;color:var(--ink-soft);max-width:660px;margin:6px auto 22px;font-size:1.06rem;}
+  .underline{display:block;width:230px;height:12px;margin:2px auto 0;color:var(--amber-ink);filter:url(#rough);}
+
+  /* ---- nodes ---- */
+  .node{
+    --bg:var(--green-bg);--edge:var(--green-edge);--ink-c:var(--green-ink);
+    position:relative;
+    border:2px solid var(--edge);
+    background:var(--bg);
+    color:var(--ink-c);
+    padding:9px 16px;
+    text-align:center;
+    font-size:1.08rem;
+    border-radius:14px 11px 13px 15px;
+    filter:url(#rough);
+    box-shadow:2.5px 3px 0 rgba(74,66,56,.16);
+    width:min(330px,100%);
+    margin:2px 0;
+  }
+  .node .sub{display:block;font-family:'Caveat',cursive;color:var(--ink-c);opacity:.88;font-size:1.1rem;margin-top:1px;line-height:1.15;}
+  .node::after{
+    content:"";position:absolute;inset:0;
+    border:2px solid var(--edge);border-radius:inherit;
+    transform:translate(2px,1px);opacity:.5;pointer-events:none;
+  }
+  .diagram > .node:nth-child(4n+1){transform:rotate(-.7deg);}
+  .diagram > .node:nth-child(4n+3){transform:rotate(.6deg);}
+
+  .n-teal{--bg:var(--teal-bg);--edge:var(--teal-edge);--ink-c:var(--teal-ink);}
+  .n-pink{--bg:var(--pink-bg);--edge:var(--pink-edge);--ink-c:var(--pink-ink);}
+  .n-green{--bg:var(--green-bg);--edge:var(--green-edge);--ink-c:var(--green-ink);}
+  .n-orange{--bg:var(--orange-bg);--edge:var(--orange-edge);--ink-c:var(--orange-ink);}
+  .n-blue{--bg:var(--blue-bg);--edge:var(--blue-edge);--ink-c:var(--blue-ink);}
+  .n-purple{--bg:var(--purple-bg);--edge:var(--purple-edge);--ink-c:var(--purple-ink);}
+  .n-red{--bg:var(--red-bg);--edge:var(--red-edge);--ink-c:var(--red-ink);}
+  .n-yellow{--bg:var(--yellow-bg);--edge:var(--yellow-edge);--ink-c:var(--yellow-ink);}
+
+  /* ---- arrows ---- */
+  .diagram{display:flex;flex-direction:column;align-items:center;}
+  .vlink{position:relative;display:flex;justify-content:center;align-items:flex-start;height:74px;width:100%;}
+  .v-arrow{width:46px;height:74px;color:var(--ink-soft);filter:url(#rough);flex:none;}
+  .st path{stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .st .st2{stroke-width:1.8;opacity:.45;}
+  .vlink-tag{
+    position:absolute;left:calc(50% + 30px);top:46px;
+    font-family:'Caveat',cursive;font-size:1.02rem;line-height:1;
+    color:var(--amber-ink);transform:rotate(-4deg);white-space:nowrap;
+  }
+  .vlink-tag.tag-left{left:auto;right:calc(50% + 30px);transform:rotate(3deg);}
+
+  .split{width:98px;height:54px;color:var(--ink-soft);filter:url(#rough);flex:none;margin:2px 0;}
+
+  /* ---- branch rows ---- */
+  .branch-row{display:flex;justify-content:center;align-items:flex-start;gap:20px;flex-wrap:wrap;width:100%;margin:2px 0;}
+  .branch-col{display:flex;flex-direction:column;align-items:center;width:min(280px,100%);}
+  .branch-col .node{width:100%;}
+  .branch-col:nth-child(odd) .node{transform:rotate(-.6deg);}
+  .branch-col:nth-child(even) .node{transform:rotate(.5deg);}
+  .branch-label{font-family:'Caveat',cursive;font-size:1.18rem;color:var(--amber-ink);transform:rotate(-2deg);margin-bottom:5px;}
+
+  /* ---- notes, formula, chips ---- */
+  .note{
+    max-width:520px;width:100%;margin:16px auto 4px;
+    background:#fffdf5;border:2px solid var(--ink-soft);
+    border-radius:14px 12px 16px 13px;padding:12px 16px;
+    filter:url(#rough);transform:rotate(.4deg);
+    box-shadow:2px 2px 0 rgba(74,66,56,.14);
+  }
+  .note-title{font-family:'Caveat',cursive;font-weight:700;font-size:1.42rem;color:var(--amber-ink);text-align:center;transform:rotate(-1deg);}
+  .note-sub{font-size:.95rem;color:var(--ink-faint);font-weight:600;}
+  .note-foot{font-size:1.02rem;color:var(--ink-soft);text-align:center;margin-top:8px;font-family:'Caveat',cursive;}
+  .code-note pre{
+    font-family:'Patrick Hand',cursive;font-size:.96rem;color:var(--ink);
+    background:rgba(250,245,232,.85);border:2px dashed var(--ink-faint);
+    border-radius:10px;padding:10px 14px;margin-top:8px;text-align:left;
+    white-space:pre;overflow-x:auto;
+  }
+
+  .safety-note{
+    display:flex;gap:10px;align-items:flex-start;
+    max-width:520px;width:100%;margin:16px auto 4px;
+    background:var(--red-bg);border:2px solid var(--red-edge);
+    border-radius:12px 15px 11px 14px;padding:10px 14px;color:var(--red-ink);
+    filter:url(#rough);transform:rotate(-.5deg);
+    box-shadow:2px 2px 0 rgba(74,66,56,.14);
+  }
+  .safety-note .mark{font-family:'Caveat',cursive;font-weight:700;font-size:1.7rem;line-height:.85;transform:rotate(-8deg);}
+
+  .formula{
+    font-family:'Caveat',cursive;font-weight:700;
+    font-size:clamp(1.4rem,4vw,1.95rem);color:var(--amber-ink);
+    background:var(--yellow-bg);border:2px dashed var(--yellow-edge);
+    padding:7px 24px;border-radius:26px 20px 24px 22px;
+    transform:rotate(-1deg);filter:url(#rough);
+    box-shadow:2px 2px 0 rgba(74,66,56,.14);margin:4px auto;
+  }
+
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0 2px;}
+  .chip{
+    font-family:'Caveat',cursive;font-size:1.14rem;color:var(--ink);
+    background:#fffdf5;border:2px solid var(--ink-soft);
+    border-radius:15px;padding:2px 14px;
+    transform:rotate(var(--r,0deg));filter:url(#rough);
+  }
+
+  .legend{max-width:860px;margin:14px auto 8px;text-align:center;}
+  .legend-title{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:700;color:var(--ink-soft);transform:rotate(-1deg);margin-bottom:2px;}
+
+  /* ---- footer ---- */
+  footer{
+    max-width:860px;margin:16px auto 46px;text-align:center;
+    color:var(--ink-faint);font-family:'Caveat',cursive;font-size:1.2rem;padding:0 16px;
+  }
+  footer .feet{display:inline-block;transform:rotate(-1.4deg);}
+
+  @media (max-width:720px){
+    .nav-inner{justify-content:center;padding:8px 10px;}
+    .hero{padding-top:44px;}
+    .badge{display:none;}
+    .diagram .node{font-size:1rem;width:min(300px,100%);}
+    .vlink{height:62px;}
+    .v-arrow{width:40px;height:62px;}
+    .vlink-tag{left:calc(50% + 20px);top:38px;font-size:.95rem;}
+    .vlink-tag.tag-left{left:auto;right:calc(50% + 20px);}
+    .paper{padding:20px 14px 24px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<!-- Sketchy SVG wobble filters -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.05" numOctaves="3" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough-more" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.04" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <span class="nav-logo">ClinicFlow &nbsp;✎</span>
+    <div class="nav-links">
+      <a href="#incoming">Incoming</a>
+      <a href="#outgoing">Outgoing</a>
+      <a href="#ai-pipeline">AI Pipeline</a>
+      <a href="#onboarding">Onboarding</a>
+      <a href="#registration">Registration</a>
+      <a href="#appointments">Appointments</a>
+      <a href="#financials">Financials</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="badge">7<br><span>workflows</span></div>
+  <h1 class="hero-title">ClinicFlow</h1>
+  <p class="hero-sub">— Workflow Site Map —</p>
+  <svg class="hero-squiggle" viewBox="0 0 340 24" fill="none" aria-hidden="true">
+    <g class="st">
+      <path d="M6 14 C40 6 80 18 120 12 S200 6 240 12 S300 10 314 8"/>
+      <path d="M12 15 C44 8 84 17 122 13 S198 8 238 13 S296 12 308 10" class="st2"/>
+    </g>
+  </svg>
+  <p class="hero-tag">AI-Powered WhatsApp Automation &amp; Clinic Management Platform</p>
+  <p class="hero-note">A hand-drawn map of the platform's core workflows — seven diagrams, one notebook.</p>
+  <p class="hero-arrows">↓ keep scrolling, it's all sketched by hand</p>
+</header>
+
+<main>
+
+  <!-- 1 · Incoming Message Workflow -->
+  <section class="paper" id="incoming">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Incoming Message Workflow</h2>
+      <span class="sec-ref">TRD §6.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">A patient's WhatsApp message rides the webhook into FastAPI, gets understood by the AI, resolved against the database, and answered back — a closed loop from patient to patient.</p>
+
+    <div class="diagram">
+      <div class="node n-teal">Patient<span class="sub">WhatsApp</span></div>
+      <div class="vlink"><span class="vlink-tag">message</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-pink">WhatsApp Cloud API</div>
+      <div class="vlink"><span class="vlink-tag tag-left">webhook</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">FastAPI Webhook Handler<span class="sub">validation · parsing</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Message Processing</div>
+      <div class="vlink"><span class="vlink-tag">intent</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-orange">AI Intent Service<span class="sub">Groq · intent + entities</span></div>
+      <div class="vlink"><span class="vlink-tag tag-left">validated</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Business Logic</div>
+      <div class="vlink"><span class="vlink-tag">query</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-blue">Database<span class="sub">source of truth</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Response Generator</div>
+      <div class="vlink"><span class="vlink-tag">send</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-pink">WhatsApp Cloud API</div>
+      <div class="vlink"><span class="vlink-tag tag-left">reply</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Patient<span class="sub">reads the answer</span></div>
+    </div>
+  </section>
+
+  <!-- 2 · Outgoing Message Workflow -->
+  <section class="paper" id="outgoing">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Outgoing Message Workflow</h2>
+      <span class="sec-ref">TRD §6.2</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">The outbound path is short: the backend composes an answer, the WhatsApp Cloud API delivers it, and the patient reads it on WhatsApp.</p>
+
+    <div class="diagram">
+      <div class="node n-green">FastAPI<span class="sub">application backend</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Response Generator</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-pink">WhatsApp Cloud API</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Patient WhatsApp</div>
+    </div>
+  </section>
+
+  <!-- 3 · AI Processing Pipeline -->
+  <section class="paper" id="ai-pipeline">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>AI Processing Pipeline</h2>
+      <span class="sec-ref">TRD §7.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">From raw message to structured, validated understanding — the AI extracts intent and entities, the backend verifies the JSON, and only then does anything touch the database.</p>
+
+    <div class="diagram">
+      <div class="node n-teal">Incoming WhatsApp Message</div>
+      <div class="vlink"><span class="vlink-tag">understand</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-orange">Language / Intent Understanding<span class="sub">Groq LLM</span></div>
+      <div class="vlink"><span class="vlink-tag">extract</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-orange">Entity Extraction<span class="sub">doctor · date · time · service</span></div>
+      <div class="vlink"><span class="vlink-tag">validate JSON</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-red">Validate AI Output<span class="sub">structured JSON · reject if bad</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Backend Business Logic</div>
+      <div class="vlink"><span class="vlink-tag">query / act</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-blue">Database Query / Action</div>
+      <div class="vlink"><span class="vlink-tag">result</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Natural Response Generation</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">WhatsApp<span class="sub">back to the patient</span></div>
+    </div>
+
+    <div class="note code-note">
+      <div class="note-title">Structured AI Output <span class="note-sub">TRD §7.2</span></div>
+      <pre>{
+  "intent": "doctor_availability",
+  "entities": {
+    "doctor": "Ahmed",
+    "date": "2026-08-15"
+  },
+  "confidence": 0.94
+}</pre>
+      <p class="note-foot">The backend validates structured output before taking any business action.</p>
+    </div>
+
+    <div class="safety-note"><span class="mark">!</span><span>The AI is a language layer, never the source of truth. Clinic facts and operations live in backend logic + the database.</span></div>
+  </section>
+
+  <!-- 4 · Clinic Onboarding Workflow -->
+  <section class="paper" id="onboarding">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Clinic Onboarding Workflow</h2>
+      <span class="sec-ref">TRD §11.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">An owner walks through eight steps — from creating an account to switching the bot on — to configure their clinic end to end.</p>
+
+    <div class="diagram">
+      <div class="node n-purple">Clinic Owner<span class="sub">dashboard user</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Create Account</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Clinic Details<span class="sub">name · location · hours</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Add Doctors + Schedules</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Add Services + Fees</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Add FAQs</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Registration Configuration<span class="sub">which fields to ask patients</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Review &amp; Test<span class="sub">simulated messages</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Activate Bot<span class="sub">go live</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · Patient Registration State Machine -->
+  <section class="paper" id="registration">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>Patient Registration State Machine</h2>
+      <span class="sec-ref">TRD §12.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">A small state machine that turns a patient's "I need an appointment" into a structured record and a pending appointment.</p>
+
+    <div class="diagram">
+      <div class="node n-teal">Patient: "I need an appointment"</div>
+      <div class="vlink"><span class="vlink-tag">intent</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-orange">appointment_booking intent detected</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Ask configured registration fields</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-red">Validate input</div>
+      <div class="vlink"><span class="vlink-tag tag-left">invalid → re-ask</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-blue">Store / update patient record</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Create pending appointment</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Dashboard update</div>
+    </div>
+  </section>
+
+  <!-- 6 · Appointment Confirmation Flow -->
+  <section class="paper" id="appointments">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>Appointment Confirmation Flow</h2>
+      <span class="sec-ref">TRD §13.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">The AI extracts, the backend validates, the schedule is checked — then the owner confirms before anything is claimed.</p>
+
+    <div class="diagram">
+      <div class="node n-teal">Patient<span class="sub">WhatsApp</span></div>
+      <div class="vlink"><span class="vlink-tag">request</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Request appointment</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-orange">AI extracts doctor / date / time</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Backend validates request</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Check doctor schedule<span class="sub">availability check</span></div>
+      <svg class="split" viewBox="0 0 98 54" fill="none" aria-hidden="true">
+        <g class="st">
+          <path d="M49 4 C49 18 49 22 49 27"/>
+          <path d="M49 21 C39 31 29 41 19 47"/>
+          <path d="M49 21 C59 31 69 41 79 47"/>
+          <path d="M19 47 L29 43 M79 47 L69 43"/>
+        </g>
+      </svg>
+      <div class="branch-row">
+        <div class="branch-col">
+          <span class="branch-label">unavailable</span>
+          <div class="node n-red">Suggest alternatives<span class="sub">nearby doctors · times</span></div>
+        </div>
+        <div class="branch-col">
+          <span class="branch-label">available</span>
+          <div class="node n-green">Create appointment<span class="sub">status: PENDING</span></div>
+        </div>
+      </div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Clinic Dashboard</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Owner confirms</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Appointment: CONFIRMED<span class="sub">status written to database</span></div>
+      <div class="vlink"><span class="vlink-tag">reply</span>
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-teal">Patient receives confirmation</div>
+    </div>
+
+    <div class="safety-note"><span class="mark">!</span><span>Safety rule: never tell a patient an appointment is confirmed unless the database recorded the confirmed state.</span></div>
+
+    <div class="note">
+      <div class="note-title">Appointment Statuses <span class="note-sub">TRD §13.2</span></div>
+      <div class="chips">
+        <span class="chip" style="--r:1deg">pending</span>
+        <span class="chip" style="--r:-1.5deg">confirmed</span>
+        <span class="chip" style="--r:.6deg">cancelled</span>
+        <span class="chip" style="--r:-.4deg">completed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Financial Workflow -->
+  <section class="paper" id="financials">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2>Financial Workflow</h2>
+      <span class="sec-ref">TRD §14.1</span>
+    </div>
+    <svg class="underline" viewBox="0 0 230 12" preserveAspectRatio="none" fill="none" aria-hidden="true">
+      <g class="st"><path d="M5 7 C45 2 110 10 225 5"/><path d="M12 8 C50 3 100 9 218 6" class="st2"/></g>
+    </svg>
+    <p class="sec-desc">Money in, money out — both land in the transactions database, get aggregated by the reporting service, and boil down to net income.</p>
+
+    <div class="diagram">
+      <div class="node n-purple">Clinic Owner<span class="sub">dashboard user</span></div>
+      <svg class="split" viewBox="0 0 98 54" fill="none" aria-hidden="true">
+        <g class="st">
+          <path d="M49 4 C49 18 49 22 49 27"/>
+          <path d="M49 21 C39 31 29 41 19 47"/>
+          <path d="M49 21 C59 31 69 41 79 47"/>
+          <path d="M19 47 L29 43 M79 47 L69 43"/>
+        </g>
+      </svg>
+      <div class="branch-row">
+        <div class="branch-col">
+          <span class="branch-label">money in</span>
+          <div class="node n-green">Enter Revenue</div>
+        </div>
+        <div class="branch-col">
+          <span class="branch-label">money out</span>
+          <div class="node n-red">Enter Expense</div>
+        </div>
+      </div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-blue">Transactions Database</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-purple">Reporting Service<span class="sub">aggregates monthly</span></div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="formula">Revenue − Expenses = Net Income</div>
+      <div class="vlink">
+        <svg class="v-arrow" viewBox="0 0 40 90" fill="none" aria-hidden="true"><g class="st"><path d="M20 6 C22 20 18 32 20 46"/><path d="M20 50 L12 40 M20 50 L28 40"/><path d="M19 10 C18 22 22 30 20 44" class="st2"/></g></svg>
+      </div>
+      <div class="node n-green">Net Income</div>
+    </div>
+
+    <div class="note">
+      <div class="note-title">Monthly Report <span class="note-sub">TRD §15</span></div>
+      <div class="chips">
+        <span class="chip" style="--r:-1deg">Revenue</span>
+        <span class="chip" style="--r:.8deg">Expenses</span>
+        <span class="chip" style="--r:-.6deg">Net Income</span>
+        <span class="chip" style="--r:1.2deg">New Patients</span>
+        <span class="chip" style="--r:-.9deg">Total Appointments</span>
+        <span class="chip" style="--r:.5deg">Completed</span>
+        <span class="chip" style="--r:-.3deg">Cancelled</span>
+      </div>
+      <p class="note-foot">Formula: Net Income = Total Revenue − Total Expenses</p>
+    </div>
+  </section>
+
+  <!-- color legend -->
+  <div class="legend">
+    <div class="legend-title">Color key — a scribbled legend</div>
+    <div class="chips">
+      <span class="chip" style="background:var(--teal-bg);border-color:var(--teal-edge);color:var(--teal-ink);--r:-.8deg">Patient / WhatsApp</span>
+      <span class="chip" style="background:var(--pink-bg);border-color:var(--pink-edge);color:var(--pink-ink);--r:.7deg">WhatsApp Cloud API</span>
+      <span class="chip" style="background:var(--green-bg);border-color:var(--green-edge);color:var(--green-ink);--r:-.4deg">FastAPI backend</span>
+      <span class="chip" style="background:var(--orange-bg);border-color:var(--orange-edge);color:var(--orange-ink);--r:.9deg">AI / Groq</span>
+      <span class="chip" style="background:var(--blue-bg);border-color:var(--blue-edge);color:var(--blue-ink);--r:-1deg">Database</span>
+      <span class="chip" style="background:var(--purple-bg);border-color:var(--purple-edge);color:var(--purple-ink);--r:.5deg">Dashboard</span>
+      <span class="chip" style="background:var(--red-bg);border-color:var(--red-edge);color:var(--red-ink);--r:-.6deg">Safety / error</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p><span class="feet">ClinicFlow — Workflow Site Map</span></p>
+  <p><span class="feet">Drawn from the TRD v1.0 · August 2026</span></p>
+  <p><span class="feet">HTML + CSS + a very steady hand</span></p>
+</footer>
+
+</body>
+</html>
